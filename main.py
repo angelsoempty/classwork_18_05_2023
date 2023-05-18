@@ -1,25 +1,26 @@
-#ітератор
-lst = [1,2,3,4,5,6,7,8,8]
-print(iter(lst))
+#1
+class OddIterator:
+    def __init__(self, n):
+        if n < 1:
+            raise ValueError("Введіть додатне число")
+        self.n = n
+        self.current = 1
 
-class MyIterator:
-    def __init__(self, data):
-        self.data = data
-        self.index = 0
     def __iter__(self):
         return self
+
     def __next__(self):
-        if self.index >= len(self.data):
+        if self.current > self.n:
             raise StopIteration
-        value = self.data[self.index]
-        self.index += 1
-        return value
-for num in MyIterator(lst):
-    print(num)
+        else:
+            result = self.current
+            self.current += 2
+            return result
+#приклад використання
+try:
+    for num in OddIterator(10):
+        print(num)
+except ValueError as e:
+    print(e)
 
-def my_generator(data):
-    for item in data:
-        yield item
 
-for num in my_generator(lst):
-    print(num)
