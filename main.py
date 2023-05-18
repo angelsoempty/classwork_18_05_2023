@@ -1,20 +1,12 @@
-#3
-class ListIterator:
-    def __init__(self, lst):
-        self.lst = lst
-        self.current_index = 0
-    def __iter__(self):
-        return self
-    def __next__(self):
-        if self.current_index >= len(self.lst):
-            raise StopIteration
-        else:
-            result = self.lst[self.current_index]
-            self.current_index += 1
-            return result
+#4
+def multiply_by(n):
+    def multiply(x):
+        return x * n
+    return multiply
+multiply_by_5 = multiply_by(5)
+result = multiply_by_5(10)
+print(result)
 
-numbers = [1, 2, 3, 4, 5]
-iterator = ListIterator(numbers)
-
-for num in iterator:
-    print(num)
+multiply_by_3 = multiply_by(3)
+result = multiply_by_3(7)
+print(result)
