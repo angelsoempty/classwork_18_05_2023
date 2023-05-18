@@ -16,3 +16,10 @@ class MyIterator:
         return value
 for num in MyIterator(lst):
     print(num)
+
+def my_generator(data):
+    for item in data:
+        yield item
+
+for num in my_generator(lst):
+    print(num)
